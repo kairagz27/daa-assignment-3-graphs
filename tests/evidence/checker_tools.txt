@@ -1,0 +1,21 @@
+test_cpp_helper_translation_unit (test_public_tools.LauncherTests.test_cpp_helper_translation_unit) ... skipped 'C++ compiler not installed in this environment'
+test_csharp_helper_source (test_public_tools.LauncherTests.test_csharp_helper_source) ... skipped '.NET SDK is not installed'
+test_custom_input_timeout (test_public_tools.LauncherTests.test_custom_input_timeout) ... ok
+test_java_helper_source (test_public_tools.LauncherTests.test_java_helper_source) ... ok
+test_java_input_helpers_and_json_transport (test_public_tools.LauncherTests.test_java_input_helpers_and_json_transport) ... ok
+test_manifest_and_explicit_override (test_public_tools.LauncherTests.test_manifest_and_explicit_override) ... ok
+test_protocol_and_runtime_diagnostics (test_public_tools.LauncherTests.test_protocol_and_runtime_diagnostics) ... ok
+test_python_helper_source (test_public_tools.LauncherTests.test_python_helper_source) ... ok
+test_utf8_transport (test_public_tools.LauncherTests.test_utf8_transport) ... ok
+test_alternative_optima_and_invalid_witnesses (test_public_tools.ValidatorTests.test_alternative_optima_and_invalid_witnesses) ... ok
+test_alternative_topological_order_and_labels (test_public_tools.ValidatorTests.test_alternative_topological_order_and_labels) ... ok
+test_bad_types_missing_fields_and_witnesses (test_public_tools.ValidatorTests.test_bad_types_missing_fields_and_witnesses) ... ok
+test_published_answers (test_public_tools.ValidatorTests.test_published_answers) ... ok
+test_cpp_input_helpers_and_entry_point (test_starter_transport.StarterTransportTests.test_cpp_input_helpers_and_entry_point) ... skipped 'C++ compiler not installed'
+test_csharp_input_helpers_and_entry_point (test_starter_transport.StarterTransportTests.test_csharp_input_helpers_and_entry_point) ... skipped '.NET SDK is not installed'
+test_python_entry_point (test_starter_transport.StarterTransportTests.test_python_entry_point) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 3.856s
+
+OK (skipped=4)

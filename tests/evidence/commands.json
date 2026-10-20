@@ -1,0 +1,22 @@
+[
+  {
+    "command": "python tools/run.py --setup",
+    "exit_code": 0
+  },
+  {
+    "command": "python tools/run.py --check",
+    "exit_code": 0
+  },
+  {
+    "command": "python -m unittest discover -s tools -p test_*.py -v",
+    "exit_code": 0
+  },
+  {
+    "command": "python -m unittest discover -s tests -p test_*.py -v",
+    "exit_code": 0
+  },
+  {
+    "command": "python tools/run.py --input tests/my_cases.jsonl",
+    "exit_code": 0
+  }
+]

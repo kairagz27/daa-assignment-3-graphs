@@ -1,0 +1,15 @@
+test_independent_forest_certificate_rejects_nonoptimal_tree (test_algorithms.GraphTests.test_independent_forest_certificate_rejects_nonoptimal_tree) ... ok
+test_own_fixed_cases (test_algorithms.GraphTests.test_own_fixed_cases) ... ok
+test_random_dag_bellman_ford (test_algorithms.GraphTests.test_random_dag_bellman_ford) ... ok
+test_random_dsu_relabelling (test_algorithms.GraphTests.test_random_dsu_relabelling) ... ok
+test_random_forests_exhaustive_subsets (test_algorithms.GraphTests.test_random_forests_exhaustive_subsets) ... ok
+test_random_scc_transitive_closure (test_algorithms.GraphTests.test_random_scc_transitive_closure) ... ok
+test_random_topo_kahn (test_algorithms.GraphTests.test_random_topo_kahn) ... ok
+test_repeated_mixed_requests_in_one_real_process (test_algorithms.GraphTests.test_repeated_mixed_requests_in_one_real_process) ... ok
+test_route_helper_required_calls (test_algorithms.GraphTests.test_route_helper_required_calls) ... ok
+test_semantic_check_accepts_alternatives_rejects_bad_witnesses (test_algorithms.GraphTests.test_semantic_check_accepts_alternatives_rejects_bad_witnesses) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.289s
+
+OK

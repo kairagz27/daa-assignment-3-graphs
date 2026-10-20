@@ -29,3 +29,9 @@ jobs:
       - name: Check your algorithms and request-state reset
         if: github.repository != 'RZhaniya/daa-assignment-3-graphs'
         run: python tools/run.py --check
+      - name: Independent oracles, alternative witnesses and route helper
+        if: github.repository != 'RZhaniya/daa-assignment-3-graphs'
+        run: python -m unittest discover -s tests -p "test_*.py" -v
+      - name: Full published limits and deep graphs
+        if: github.repository != 'RZhaniya/daa-assignment-3-graphs'
+        run: python tests/run_scale.py

@@ -1,0 +1,36 @@
+{"status": "ready"}
+{"states": []}
+{"cost": 0, "components": 0}
+{"cost": 0, "components": 0}
+{"component": []}
+{"acyclic": true}
+{"states": [[7, 2], [6, 2], [5, 4], [4, 4], [3, 4], [2, 4], [1, 8], [1, 8], [1, 8]]}
+{"states": [[1, 1], [1, 1]]}
+{"states": []}
+{"cost": 0, "components": 5}
+{"cost": 4, "components": 2}
+{"cost": -12, "components": 4}
+{"cost": 4000000000, "components": 1}
+{"cost": -4000000000, "components": 1}
+{"cost": 0, "components": 2}
+{"cost": 0, "components": 5}
+{"cost": 4, "components": 2}
+{"cost": -12, "components": 4}
+{"cost": 4000000000, "components": 1}
+{"cost": -4000000000, "components": 1}
+{"cost": 0, "components": 2}
+{"component": [0, 0, 2, 2, 4, 5, 6]}
+{"component": [0, 0, 0, 0]}
+{"component": [0, 1, 2, 3, 4]}
+{"acyclic": true}
+{"acyclic": false}
+{"acyclic": false}
+{"acyclic": true}
+{"acyclic": true, "distance": [0, 3, -4, 0, null]}
+{"acyclic": true, "distance": [0, 2, 1, -1, null]}
+{"acyclic": true, "distance": [null, null, -1, 0, -1]}
+{"acyclic": false}
+{"acyclic": false}
+{"acyclic": true, "distance": [0]}
+{"acyclic": true, "distance": [0, -1000000000, -2000000000, -3000000000, -4000000000]}
+{"acyclic": true, "distance": [0, 1000000000, 2000000000, 3000000000, 4000000000]}

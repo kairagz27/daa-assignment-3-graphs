@@ -1,0 +1,99 @@
+{
+  "runtime": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+  "logical_cpu_count": 16,
+  "timer": "time.perf_counter_ns",
+  "timer_implementation": "QueryPerformanceCounter()",
+  "timer_resolution_seconds": 1e-07,
+  "gc_enabled": true,
+  "repeats": 5,
+  "warmup": "One extra untimed call per method per size, after independent pre-validation calls.",
+  "timing_boundary": "Algorithm function call: includes internal adjacency/DSU/sort/heap construction and result allocation; excludes input graph generation, JSON parsing/serialization, imports, process startup, validation and output; no compilation.",
+  "rows": [
+    {
+      "n": 1000,
+      "m": 2500,
+      "seed": 4300,
+      "graph_sha256": "3b8b8bbfba3c67f0b7f3f6f5eb19c3820d7796b0db189440cea8cd3f66ed6286",
+      "verified_cost": -512023677965,
+      "components": 1,
+      "milliseconds": {
+        "kruskal": [
+          6.255,
+          4.4077,
+          2.9665,
+          2.979,
+          3.3794
+        ],
+        "prim": [
+          11.5672,
+          7.0941,
+          6.9013,
+          5.0033,
+          4.1866
+        ]
+      },
+      "median_ms": {
+        "kruskal": 3.3794,
+        "prim": 6.9013
+      }
+    },
+    {
+      "n": 10000,
+      "m": 25000,
+      "seed": 13300,
+      "graph_sha256": "e6d89fd71be26281bdd9940ecfd49854deb137b1a68d12da3ca0e448af754583",
+      "verified_cost": -5310914843101,
+      "components": 1,
+      "milliseconds": {
+        "kruskal": [
+          35.374,
+          36.4712,
+          32.4733,
+          30.0874,
+          29.7427
+        ],
+        "prim": [
+          67.2779,
+          62.9633,
+          64.3655,
+          67.0153,
+          63.3572
+        ]
+      },
+      "median_ms": {
+        "kruskal": 32.4733,
+        "prim": 64.3655
+      }
+    },
+    {
+      "n": 100000,
+      "m": 250000,
+      "seed": 103300,
+      "graph_sha256": "026e0278124eeb51f6906f69232a8ec3b9d60a885388b766c0c491ca0f30e2c4",
+      "verified_cost": -53339690907812,
+      "components": 1,
+      "milliseconds": {
+        "kruskal": [
+          501.5255,
+          490.285,
+          526.6824,
+          522.459,
+          517.6753
+        ],
+        "prim": [
+          1306.9557,
+          1271.0618,
+          1273.9131,
+          1261.8185,
+          1340.8454
+        ]
+      },
+      "median_ms": {
+        "kruskal": 517.6753,
+        "prim": 1273.9131
+      }
+    }
+  ]
+}

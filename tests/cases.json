@@ -1,0 +1,1048 @@
+[
+  {
+    "name": "transport ping",
+    "input": {
+      "task": "ping"
+    },
+    "expected": {
+      "status": "ready"
+    },
+    "justification": "The supplied transport contract returns ready."
+  },
+  {
+    "name": "dsu empty",
+    "input": {
+      "task": "dsu",
+      "n": 0,
+      "operations": []
+    },
+    "expected": {
+      "states": []
+    },
+    "justification": "No vertices, edges or operations; all arrays are empty, forest cost and component count are zero."
+  },
+  {
+    "name": "kruskal empty",
+    "input": {
+      "task": "kruskal",
+      "n": 0,
+      "edges": []
+    },
+    "expected": {
+      "cost": 0,
+      "components": 0
+    },
+    "justification": "No vertices, edges or operations; all arrays are empty, forest cost and component count are zero."
+  },
+  {
+    "name": "prim empty",
+    "input": {
+      "task": "prim",
+      "n": 0,
+      "edges": []
+    },
+    "expected": {
+      "cost": 0,
+      "components": 0
+    },
+    "justification": "No vertices, edges or operations; all arrays are empty, forest cost and component count are zero."
+  },
+  {
+    "name": "scc empty",
+    "input": {
+      "task": "scc",
+      "n": 0,
+      "edges": []
+    },
+    "expected": {
+      "component": []
+    },
+    "justification": "No vertices, edges or operations; all arrays are empty, forest cost and component count are zero."
+  },
+  {
+    "name": "topo empty",
+    "input": {
+      "task": "topo",
+      "n": 0,
+      "edges": []
+    },
+    "expected": {
+      "acyclic": true
+    },
+    "justification": "No vertices, edges or operations; all arrays are empty, forest cost and component count are zero."
+  },
+  {
+    "name": "DSU balanced and redundant merges",
+    "input": {
+      "task": "dsu",
+      "n": 8,
+      "operations": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    "expected": {
+      "states": [
+        [
+          7,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ]
+      ]
+    },
+    "justification": "Component sizes progress 2,2,4,4,4,4,8,8,8; counts 7,6,5,4,3,2,1,1,1. Relabelling is an independent oracle."
+  },
+  {
+    "name": "DSU singleton self unions",
+    "input": {
+      "task": "dsu",
+      "n": 1,
+      "operations": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "expected": {
+      "states": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    "justification": "Both states are [1,1]; a self union changes nothing."
+  },
+  {
+    "name": "DSU no operations",
+    "input": {
+      "task": "dsu",
+      "n": 4,
+      "operations": []
+    },
+    "expected": {
+      "states": []
+    },
+    "justification": "Only post-operation states are output, so the answer is empty."
+  },
+  {
+    "name": "kruskal isolates",
+    "input": {
+      "task": "kruskal",
+      "n": 5,
+      "edges": []
+    },
+    "expected": {
+      "cost": 0,
+      "components": 5
+    },
+    "justification": "Five isolated vertices; zero selected edges and zero cost. The oracle also exhaustively enumerates every feasible subset."
+  },
+  {
+    "name": "kruskal ties and parallel",
+    "input": {
+      "task": "kruskal",
+      "n": 4,
+      "edges": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          -99
+        ]
+      ]
+    },
+    "expected": {
+      "cost": 4,
+      "components": 2
+    },
+    "justification": "The triangle needs two edges of weight 2; vertex 3 is isolated; cost 4, components 2. Negative loop is unusable. The oracle also exhaustively enumerates every feasible subset."
+  },
+  {
+    "name": "kruskal disconnected negative",
+    "input": {
+      "task": "kruskal",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1,
+          -4
+        ],
+        [
+          0,
+          1,
+          8
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          3,
+          4,
+          -9
+        ],
+        [
+          5,
+          5,
+          -100
+        ]
+      ]
+    },
+    "expected": {
+      "cost": -12,
+      "components": 4
+    },
+    "justification": "On {0,1,2} choose -4 and 1, on {3,4} choose -9; 5 and 6 are isolates. Cost -12, components 4. The oracle also exhaustively enumerates every feasible subset."
+  },
+  {
+    "name": "kruskal positive 64 bit",
+    "input": {
+      "task": "kruskal",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1,
+          1000000000
+        ],
+        [
+          1,
+          2,
+          1000000000
+        ],
+        [
+          2,
+          3,
+          1000000000
+        ],
+        [
+          3,
+          4,
+          1000000000
+        ]
+      ]
+    },
+    "expected": {
+      "cost": 4000000000,
+      "components": 1
+    },
+    "justification": "This tree is the only spanning tree; cost 4000000000 exceeds signed 32 bits. The oracle also exhaustively enumerates every feasible subset."
+  },
+  {
+    "name": "kruskal negative 64 bit",
+    "input": {
+      "task": "kruskal",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1,
+          -1000000000
+        ],
+        [
+          1,
+          2,
+          -1000000000
+        ],
+        [
+          2,
+          3,
+          -1000000000
+        ],
+        [
+          3,
+          4,
+          -1000000000
+        ]
+      ]
+    },
+    "expected": {
+      "cost": -4000000000,
+      "components": 1
+    },
+    "justification": "The unique tree has cost -4000000000, below signed 32 bits. The oracle also exhaustively enumerates every feasible subset."
+  },
+  {
+    "name": "kruskal loops only",
+    "input": {
+      "task": "kruskal",
+      "n": 2,
+      "edges": [
+        [
+          0,
+          0,
+          -8
+        ],
+        [
+          1,
+          1,
+          7
+        ]
+      ]
+    },
+    "expected": {
+      "cost": 0,
+      "components": 2
+    },
+    "justification": "Both vertices remain isolated; no loop can enter a forest. The oracle also exhaustively enumerates every feasible subset."
+  },
+  {
+    "name": "prim isolates",
+    "input": {
+      "task": "prim",
+      "n": 5,
+      "edges": []
+    },
+    "expected": {
+      "cost": 0,
+      "components": 5
+    },
+    "justification": "Five isolated vertices; zero selected edges and zero cost. The oracle also exhaustively enumerates every feasible subset."
+  },
+  {
+    "name": "prim ties and parallel",
+    "input": {
+      "task": "prim",
+      "n": 4,
+      "edges": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          -99
+        ]
+      ]
+    },
+    "expected": {
+      "cost": 4,
+      "components": 2
+    },
+    "justification": "The triangle needs two edges of weight 2; vertex 3 is isolated; cost 4, components 2. Negative loop is unusable. The oracle also exhaustively enumerates every feasible subset."
+  },
+  {
+    "name": "prim disconnected negative",
+    "input": {
+      "task": "prim",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1,
+          -4
+        ],
+        [
+          0,
+          1,
+          8
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          3,
+          4,
+          -9
+        ],
+        [
+          5,
+          5,
+          -100
+        ]
+      ]
+    },
+    "expected": {
+      "cost": -12,
+      "components": 4
+    },
+    "justification": "On {0,1,2} choose -4 and 1, on {3,4} choose -9; 5 and 6 are isolates. Cost -12, components 4. The oracle also exhaustively enumerates every feasible subset."
+  },
+  {
+    "name": "prim positive 64 bit",
+    "input": {
+      "task": "prim",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1,
+          1000000000
+        ],
+        [
+          1,
+          2,
+          1000000000
+        ],
+        [
+          2,
+          3,
+          1000000000
+        ],
+        [
+          3,
+          4,
+          1000000000
+        ]
+      ]
+    },
+    "expected": {
+      "cost": 4000000000,
+      "components": 1
+    },
+    "justification": "This tree is the only spanning tree; cost 4000000000 exceeds signed 32 bits. The oracle also exhaustively enumerates every feasible subset."
+  },
+  {
+    "name": "prim negative 64 bit",
+    "input": {
+      "task": "prim",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1,
+          -1000000000
+        ],
+        [
+          1,
+          2,
+          -1000000000
+        ],
+        [
+          2,
+          3,
+          -1000000000
+        ],
+        [
+          3,
+          4,
+          -1000000000
+        ]
+      ]
+    },
+    "expected": {
+      "cost": -4000000000,
+      "components": 1
+    },
+    "justification": "The unique tree has cost -4000000000, below signed 32 bits. The oracle also exhaustively enumerates every feasible subset."
+  },
+  {
+    "name": "prim loops only",
+    "input": {
+      "task": "prim",
+      "n": 2,
+      "edges": [
+        [
+          0,
+          0,
+          -8
+        ],
+        [
+          1,
+          1,
+          7
+        ]
+      ]
+    },
+    "expected": {
+      "cost": 0,
+      "components": 2
+    },
+    "justification": "Both vertices remain isolated; no loop can enter a forest. The oracle also exhaustively enumerates every feasible subset."
+  },
+  {
+    "name": "SCC duplicate condensation and isolates",
+    "input": {
+      "task": "scc",
+      "n": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ]
+      ]
+    },
+    "expected": {
+      "component": [
+        0,
+        0,
+        2,
+        2,
+        4,
+        5,
+        6
+      ]
+    },
+    "justification": "Mutual reachability gives {0,1},{2,3},{4},{5},{6}; only the first-to-second and second-to-third cross pairs exist."
+  },
+  {
+    "name": "SCC one giant component",
+    "input": {
+      "task": "scc",
+      "n": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    "expected": {
+      "component": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "justification": "Every vertex reaches every other around the directed ring; condensation is empty."
+  },
+  {
+    "name": "SCC all isolates",
+    "input": {
+      "task": "scc",
+      "n": 5,
+      "edges": []
+    },
+    "expected": {
+      "component": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "justification": "Reflexive reachability only; all five SCCs are distinct."
+  },
+  {
+    "name": "topo finished vertex is safe",
+    "input": {
+      "task": "topo",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    "expected": {
+      "acyclic": true
+    },
+    "justification": "Precedence 0 before 2 before 1; 3 and 4 unconstrained. DFS edge 2->1 reaches an already finished vertex."
+  },
+  {
+    "name": "topo disconnected cycle",
+    "input": {
+      "task": "topo",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ]
+    },
+    "expected": {
+      "acyclic": false
+    },
+    "justification": "The separate cycle 2->3->2 forbids any whole-graph topological order."
+  },
+  {
+    "name": "topo self loop",
+    "input": {
+      "task": "topo",
+      "n": 1,
+      "edges": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "expected": {
+      "acyclic": false
+    },
+    "justification": "A self loop is a directed cycle."
+  },
+  {
+    "name": "topo isolates",
+    "input": {
+      "task": "topo",
+      "n": 5,
+      "edges": []
+    },
+    "expected": {
+      "acyclic": true
+    },
+    "justification": "Any permutation of all five vertices is valid."
+  },
+  {
+    "name": "DAG route example",
+    "input": {
+      "task": "dag",
+      "n": 5,
+      "source": 0,
+      "edges": [
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          8
+        ],
+        [
+          1,
+          2,
+          -7
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ]
+    },
+    "expected": {
+      "acyclic": true,
+      "distance": [
+        0,
+        3,
+        -4,
+        0,
+        null
+      ]
+    },
+    "justification": "Shortest distances are [0,3,-4,0,null]; route to 3 uses IDs [0,2,3], with sum 3-7+4=0."
+  },
+  {
+    "name": "DAG tied parallel routes",
+    "input": {
+      "task": "dag",
+      "n": 5,
+      "source": 0,
+      "edges": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          1,
+          3,
+          -3
+        ],
+        [
+          2,
+          3,
+          -2
+        ]
+      ]
+    },
+    "expected": {
+      "acyclic": true,
+      "distance": [
+        0,
+        2,
+        1,
+        -1,
+        null
+      ]
+    },
+    "justification": "Distances [0,2,1,-1,null]; IDs 0 or 1 or path [2,3] reach 1 optimally; 3 has two equal shortest routes."
+  },
+  {
+    "name": "DAG nonzero source and unreachable",
+    "input": {
+      "task": "dag",
+      "n": 5,
+      "source": 3,
+      "edges": [
+        [
+          0,
+          1,
+          -8
+        ],
+        [
+          3,
+          2,
+          -1
+        ],
+        [
+          2,
+          4,
+          0
+        ]
+      ]
+    },
+    "expected": {
+      "acyclic": true,
+      "distance": [
+        null,
+        null,
+        -1,
+        0,
+        -1
+      ]
+    },
+    "justification": "Distances [null,null,-1,0,-1]; never relax the unreachable negative edge 0->1."
+  },
+  {
+    "name": "DAG cycle outside reachability",
+    "input": {
+      "task": "dag",
+      "n": 5,
+      "source": 0,
+      "edges": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          3,
+          4,
+          -1
+        ],
+        [
+          4,
+          3,
+          1
+        ]
+      ]
+    },
+    "expected": {
+      "acyclic": false
+    },
+    "justification": "The unreachable cycle 3->4->3 still requires false and empty result arrays."
+  },
+  {
+    "name": "DAG unreachable self loop",
+    "input": {
+      "task": "dag",
+      "n": 2,
+      "source": 0,
+      "edges": [
+        [
+          1,
+          1,
+          -1
+        ]
+      ]
+    },
+    "expected": {
+      "acyclic": false
+    },
+    "justification": "Even an unreachable self loop invalidates the whole graph."
+  },
+  {
+    "name": "DAG singleton",
+    "input": {
+      "task": "dag",
+      "n": 1,
+      "source": 0,
+      "edges": []
+    },
+    "expected": {
+      "acyclic": true,
+      "distance": [
+        0
+      ]
+    },
+    "justification": "The only distance is zero; source parent is -1 and route is [0]."
+  },
+  {
+    "name": "DAG 64 bit -1000000000",
+    "input": {
+      "task": "dag",
+      "n": 5,
+      "source": 0,
+      "edges": [
+        [
+          0,
+          1,
+          -1000000000
+        ],
+        [
+          1,
+          2,
+          -1000000000
+        ],
+        [
+          2,
+          3,
+          -1000000000
+        ],
+        [
+          3,
+          4,
+          -1000000000
+        ]
+      ]
+    },
+    "expected": {
+      "acyclic": true,
+      "distance": [
+        0,
+        -1000000000,
+        -2000000000,
+        -3000000000,
+        -4000000000
+      ]
+    },
+    "justification": "The unique path to vertex v has v edges and weight v*w; the last distance is +/-4000000000."
+  },
+  {
+    "name": "DAG 64 bit 1000000000",
+    "input": {
+      "task": "dag",
+      "n": 5,
+      "source": 0,
+      "edges": [
+        [
+          0,
+          1,
+          1000000000
+        ],
+        [
+          1,
+          2,
+          1000000000
+        ],
+        [
+          2,
+          3,
+          1000000000
+        ],
+        [
+          3,
+          4,
+          1000000000
+        ]
+      ]
+    },
+    "expected": {
+      "acyclic": true,
+      "distance": [
+        0,
+        1000000000,
+        2000000000,
+        3000000000,
+        4000000000
+      ]
+    },
+    "justification": "The unique path to vertex v has v edges and weight v*w; the last distance is +/-4000000000."
+  }
+]

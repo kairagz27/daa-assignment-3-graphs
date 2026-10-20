@@ -1,0 +1,365 @@
+[
+  {
+    "input": {
+      "task": "kruskal",
+      "n": 3,
+      "edges": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          0,
+          2,
+          1
+        ]
+      ]
+    },
+    "accepted": [
+      {
+        "cost": 2,
+        "components": 1,
+        "edge_ids": [
+          0,
+          1
+        ]
+      },
+      {
+        "cost": 2,
+        "components": 1,
+        "edge_ids": [
+          2,
+          1
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "cost": 2,
+        "components": 1,
+        "edge_ids": [
+          0,
+          0
+        ]
+      },
+      {
+        "cost": 2,
+        "components": 1,
+        "edge_ids": [
+          0,
+          1,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "input": {
+      "task": "prim",
+      "n": 3,
+      "edges": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          0,
+          2,
+          1
+        ]
+      ]
+    },
+    "accepted": [
+      {
+        "cost": 2,
+        "components": 1,
+        "edge_ids": [
+          0,
+          1
+        ]
+      },
+      {
+        "cost": 2,
+        "components": 1,
+        "edge_ids": [
+          2,
+          1
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "cost": 2,
+        "components": 1,
+        "edge_ids": [
+          2,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "input": {
+      "task": "scc",
+      "n": 3,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    "accepted": [
+      {
+        "component": [
+          0,
+          0,
+          1
+        ],
+        "condensation": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "component": [
+          9,
+          9,
+          4
+        ],
+        "condensation": [
+          [
+            9,
+            4
+          ]
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "component": [
+          0,
+          0,
+          1
+        ],
+        "condensation": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "component": [
+          0,
+          0,
+          0
+        ],
+        "condensation": []
+      },
+      {
+        "component": [
+          0,
+          0,
+          1
+        ],
+        "condensation": [
+          [
+            1,
+            0
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "input": {
+      "task": "topo",
+      "n": 3,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    "accepted": [
+      {
+        "acyclic": true,
+        "order": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "acyclic": true,
+        "order": [
+          1,
+          0,
+          2
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "acyclic": true,
+        "order": [
+          2,
+          0,
+          1
+        ]
+      },
+      {
+        "acyclic": true,
+        "order": [
+          0,
+          0,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "input": {
+      "task": "dag",
+      "n": 3,
+      "source": 0,
+      "edges": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          -3
+        ]
+      ]
+    },
+    "accepted": [
+      {
+        "acyclic": true,
+        "distance": [
+          0,
+          2,
+          -1
+        ],
+        "parent_edge": [
+          -1,
+          0,
+          2
+        ]
+      },
+      {
+        "acyclic": true,
+        "distance": [
+          0,
+          2,
+          -1
+        ],
+        "parent_edge": [
+          -1,
+          1,
+          2
+        ]
+      }
+    ],
+    "rejected": [
+      {
+        "acyclic": true,
+        "distance": [
+          0,
+          2,
+          -1
+        ],
+        "parent_edge": [
+          -1,
+          2,
+          0
+        ]
+      },
+      {
+        "acyclic": true,
+        "distance": [
+          0,
+          2,
+          -1
+        ],
+        "parent_edge": [
+          -1,
+          0,
+          1
+        ]
+      }
+    ],
+    "route_calls": [
+      {
+        "target": 2,
+        "route": [
+          0,
+          1,
+          2
+        ],
+        "edge_ids": [
+          0,
+          2
+        ],
+        "cost": -1
+      },
+      {
+        "target": 2,
+        "route": [
+          0,
+          1,
+          2
+        ],
+        "edge_ids": [
+          1,
+          2
+        ],
+        "cost": -1
+      }
+    ]
+  }
+]
